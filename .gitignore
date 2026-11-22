@@ -56,3 +56,7 @@ app.*.map.json
 *.jks
 *.keystore
 .env
+
+# office lock files
+.~lock.*#
+~$*
