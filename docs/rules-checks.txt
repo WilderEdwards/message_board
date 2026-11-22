@@ -1,0 +1,12 @@
+ok    403  (want 403)  signed-out read of messages
+ok    403  (want 403)  signed-out create of a message
+ok    403  (want 403)  update another user's message
+ok    403  (want 403)  delete another user's message
+ok    403  (want 403)  create with a forged authorUid
+ok    403  (want 403)  create with a client timestamp
+ok    403  (want 403)  create with 501 characters
+ok    403  (want 403)  read another user's user document
+ok    200  (want 200)  read own user document (should pass)
+ok    200  (want 200)  edit own message (should pass)
+
+10/10 as expected

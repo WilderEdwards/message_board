@@ -1,0 +1,17 @@
+gate1 uid: snBQNrrYq76XHlUbdtQr5s5x1CEj
+own user record: 200 uid={"stringValue":"snBQNrrYq76XHlUbdtQr5s5x1CEj"} firstName={"stringValue":"Gate"} lastName={"stringValue":"Release"} role={"stringValue":"student"} registrationDateTime={"timestampValue":"2026-11-22T00:18:31.944Z"}
+field count: 5
+signed-out read messages: 403
+cross-user update seed-2: 403
+cross-user delete seed-2: 403
+seed-2 after attempts: 200 {"stringValue":"second message, from the other account"}
+live write: 200
+
+duplicate submit: two taps on send with the text 'dup tap gate'
+documents with that text: 0
+total documents: 5
+
+duplicate submit retest: two taps on send with the text 'dup check two'
+documents with that text: 1
+  id: Jl0mpSCi4sm3IjI4m82m
+total documents: 6

@@ -1,0 +1,22 @@
+{
+    "name": "projects/message-board-hw02-4360/databases/(default)/documents/users/sV7PhFfLsVvIgMDvFifFNmhhLgg1",
+    "fields": {
+        "uid": {
+            "stringValue": "sV7PhFfLsVvIgMDvFifFNmhhLgg1"
+        },
+        "firstName": {
+            "stringValue": "Test"
+        },
+        "lastName": {
+            "stringValue": "User"
+        },
+        "role": {
+            "stringValue": "student"
+        },
+        "registrationDateTime": {
+            "timestampValue": "2026-11-21T22:47:38.863Z"
+        }
+    },
+    "createTime": "2026-11-21T22:47:38.872028Z",
+    "updateTime": "2026-11-21T22:47:38.872028Z"
+}

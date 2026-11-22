@@ -1,0 +1,59 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    // the user record, private to the owner
+    match /users/{uid} {
+      allow read: if signedIn() && request.auth.uid == uid;
+
+      // only the owner, only once, and all five fields have to be there
+      allow create: if signedIn()
+        && request.auth.uid == uid
+        && request.resource.data.uid == uid
+        && request.resource.data.keys().hasAll(
+             ['uid', 'firstName', 'lastName', 'role', 'registrationDateTime'])
+        && request.resource.data.firstName is string
+        && request.resource.data.lastName is string
+        && request.resource.data.role is string;
+
+      allow update, delete: if false;
+
+      // private notification prefs under the user
+      match /prefs/{docId} {
+        allow read, write: if signedIn() && request.auth.uid == uid;
+      }
+    }
+
+    // the public board
+    match /messages/{msgId} {
+      allow read: if signedIn();
+
+      // create: signed in, own uid, server time, no fake edited stamp
+      allow create: if signedIn()
+        && request.resource.data.authorUid == request.auth.uid
+        && request.resource.data.text is string
+        && request.resource.data.text.size() > 0
+        && request.resource.data.text.size() <= 500
+        && request.resource.data.createdAt == request.time
+        && request.resource.data.editedAt == null;
+
+      // update: only the author, and the owner fields cannot change
+      allow update: if signedIn()
+        && resource.data.authorUid == request.auth.uid
+        && request.resource.data.authorUid == resource.data.authorUid
+        && request.resource.data.createdAt == resource.data.createdAt
+        && request.resource.data.text is string
+        && request.resource.data.text.size() > 0
+        && request.resource.data.text.size() <= 500;
+
+      // delete: only the author
+      allow delete: if signedIn()
+        && resource.data.authorUid == request.auth.uid;
+    }
+  }
+}

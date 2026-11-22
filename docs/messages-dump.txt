@@ -1,0 +1,8 @@
+7 messages
+  2026-11-21T12:00:00Z | Ada Lovelace | first message on the board 
+  2026-11-21T12:05:00Z | Grace Hopper | second message, from the other account 
+  2026-11-21T12:10:00Z | Ada Lovelace | a third one so the list is not empty 
+  2026-11-21T22:43:55.653Z | ada@test.com | first message on the board 
+  2026-11-21T22:44:12.989Z | ada@test.com | double tap test - edited again | edited
+  2026-11-21T22:46:35Z | Grace Hopper | inserted from the host while the board was open 
+  2026-11-21T22:48:04.211Z | Test User | posted by the new account 
